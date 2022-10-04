@@ -60,27 +60,27 @@ namespace WinFormsApp1
 			// 
 			if (inputBuffer[1] == "+")
 			{
-				operation = operations.Pull.Find(o => o.code == "Summation");
+				operation = operations.Pull.Find(o => o.code == OperationNames.Summation);
 			}
 
 			if (inputBuffer[1] == "-")
 			{
-				operation = operations.Pull.Find(o => o.code == "Substraction");
+				operation = operations.Pull.Find(o => o.code == OperationNames.Substraction);
 			}
 
 			if (inputBuffer[1] == "*")
 			{
-				operation = operations.Pull.Find(o => o.code == "Multiplication");
+				operation = operations.Pull.Find(o => o.code == OperationNames.Multiplication);
 			}
 
 			if (inputBuffer[1] == "/")
 			{
-				operation = operations.Pull.Find(o => o.code == "Division");
+				operation = operations.Pull.Find(o => o.code == OperationNames.Division);
 			}
 
 			// вычисления
-			operation.op1 = Convert.ToDecimal(inputBuffer[0]);
-			operation.op2 = Convert.ToDecimal(inputBuffer[2]);
+			operation.Operator1 = Convert.ToDecimal(inputBuffer[0]);
+			operation.Operator2 = Convert.ToDecimal(inputBuffer[2]);
 			operation.DoOperation();
 
 			// результат

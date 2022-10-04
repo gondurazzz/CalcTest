@@ -21,6 +21,7 @@ namespace WinFormsApp1
 		{
 			userInterface.Input(',');
 			FldTextResult.Text = userInterface.Output;
+			BtnEnter.Select();
 		}
 		
 		// смена знака числа
@@ -28,15 +29,17 @@ namespace WinFormsApp1
 		{
 			userInterface.Input('>');
 			FldTextResult.Text = userInterface.Output;
+			BtnEnter.Select();
 		}
 
 		// цифры
-		private void BtnNumber_Click(object sender, EventArgs e)
+		private void BtnNumber_Click(object sender, EventArgs e)		
 		{
 			if (sender is Button && (sender as Button).Text.Length == 1)
 			{
 				userInterface.Input(Convert.ToChar((sender as Button).Text));
 				FldTextResult.Text = userInterface.Output;
+				BtnEnter.Select();
 			}
 		}
 		#endregion
@@ -47,30 +50,35 @@ namespace WinFormsApp1
 		{
 			userInterface.Input('/');
 			FldTextResult.Text = userInterface.Output;
+			BtnEnter.Select();
 		}
 
 		private void BtnOperatorMult_Click(object sender, EventArgs e)
 		{
 			userInterface.Input('*');
 			FldTextResult.Text = userInterface.Output;
+			BtnEnter.Select();
 		}
 
 		private void BtnOperatorSubst_Click(object sender, EventArgs e)
 		{
 			userInterface.Input('-');
 			FldTextResult.Text = userInterface.Output;
+			BtnEnter.Select();
 		}
 
 		private void BtnOperatorAdd_Click(object sender, EventArgs e)
 		{
 			userInterface.Input('+');
 			FldTextResult.Text = userInterface.Output;
+			BtnEnter.Select();
 		}
 
 		private void BtnEnter_Click(object sender, EventArgs e)
 		{
 			userInterface.Input('=');
 			FldTextResult.Text = userInterface.Output;
+
 		}
 		#endregion
 
@@ -82,6 +90,7 @@ namespace WinFormsApp1
 		{
 			userInterface.Input('<');
 			FldTextResult.Text = userInterface.Output;
+			BtnEnter.Select();
 		}
 
 
@@ -90,14 +99,18 @@ namespace WinFormsApp1
 		{
 			userInterface.Input('C');
 			FldTextResult.Text = userInterface.Output;
+			BtnEnter.Select();
 		}
 		#endregion
 
 
 		#region клавиатурный ввод
+
 		private void Form1_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+		
 		{
 			if (e.KeyData == Keys.Escape) { userInterface.Input('C'); }
+			
 			if (e.KeyData == Keys.Enter) { userInterface.Input('='); }
 			if (e.KeyData == Keys.Add) { userInterface.Input('+'); }
 			if (e.KeyData == Keys.Subtract) { userInterface.Input('-'); }
@@ -114,5 +127,9 @@ namespace WinFormsApp1
 		}
 		#endregion
 
+		private void Form1_Load(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

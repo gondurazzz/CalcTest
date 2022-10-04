@@ -152,6 +152,7 @@ namespace WinFormsApp1
 			// 
 			// BtnNumber0
 			// 
+			this.BtnNumber0.CausesValidation = false;
 			this.BtnNumber0.Location = new System.Drawing.Point(20, 247);
 			this.BtnNumber0.Name = "BtnNumber0";
 			this.BtnNumber0.Size = new System.Drawing.Size(37, 39);
@@ -160,6 +161,7 @@ namespace WinFormsApp1
 			this.BtnNumber0.Text = "0";
 			this.BtnNumber0.UseVisualStyleBackColor = true;
 			this.BtnNumber0.Click += new System.EventHandler(this.BtnNumber_Click);
+			this.BtnNumber0.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
 			// 
 			// BtnNumberComma
 			// 
@@ -216,20 +218,6 @@ namespace WinFormsApp1
 			this.BtnOperatorMult.UseVisualStyleBackColor = true;
 			this.BtnOperatorMult.Click += new System.EventHandler(this.BtnOperatorMult_Click);
 			// 
-			// FldTextResult
-			// 
-			this.FldTextResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.FldTextResult.Enabled = false;
-			this.FldTextResult.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.FldTextResult.Location = new System.Drawing.Point(20, 19);
-			this.FldTextResult.Margin = new System.Windows.Forms.Padding(10);
-			this.FldTextResult.Multiline = true;
-			this.FldTextResult.Name = "FldTextResult";
-			this.FldTextResult.Size = new System.Drawing.Size(255, 50);
-			this.FldTextResult.TabIndex = 16;
-			this.FldTextResult.TabStop = false;
-			this.FldTextResult.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
 			// BtnEraze
 			// 
 			this.BtnEraze.Location = new System.Drawing.Point(128, 247);
@@ -248,7 +236,6 @@ namespace WinFormsApp1
 			this.BtnEnter.Name = "BtnEnter";
 			this.BtnEnter.Size = new System.Drawing.Size(37, 92);
 			this.BtnEnter.TabIndex = 17;
-			this.BtnEnter.TabStop = false;
 			this.BtnEnter.Text = "E N T E R";
 			this.BtnEnter.UseVisualStyleBackColor = true;
 			this.BtnEnter.Click += new System.EventHandler(this.BtnEnter_Click);
@@ -274,6 +261,20 @@ namespace WinFormsApp1
 			this.BtnClear.Text = "C";
 			this.BtnClear.UseVisualStyleBackColor = true;
 			this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
+			// 
+			// FldTextResult
+			// 
+			this.FldTextResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.FldTextResult.Enabled = false;
+			this.FldTextResult.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.FldTextResult.Location = new System.Drawing.Point(20, 19);
+			this.FldTextResult.Margin = new System.Windows.Forms.Padding(10);
+			this.FldTextResult.Multiline = true;
+			this.FldTextResult.Name = "FldTextResult";
+			this.FldTextResult.Size = new System.Drawing.Size(255, 50);
+			this.FldTextResult.TabIndex = 16;
+			this.FldTextResult.TabStop = false;
+			this.FldTextResult.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// Form1
 			// 
@@ -302,7 +303,8 @@ namespace WinFormsApp1
 			this.Controls.Add(this.BtnOperatorAdd);
 			this.KeyPreview = true;
 			this.Name = "Form1";
-			this.Text = "Form1";
+			this.Text = "Calc";
+			this.Load += new System.EventHandler(this.Form1_Load);
 			this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
 			this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
 			this.ResumeLayout(false);

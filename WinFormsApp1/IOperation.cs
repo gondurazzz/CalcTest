@@ -9,48 +9,48 @@ namespace WinFormsApp1
 {
 	public interface IOperation
 	{
-		public decimal op1 { get; set; }
-		public decimal op2 { get; set; }
+		public decimal Operator1 { get; set; }
+		public decimal Operator2 { get; set; }
 		public decimal res { get; set; }
-		public string code { get; }
+		public OperationNames code { get; }
 		public void DoOperation() { }
 	}
 
 	public class Summation : IOperation
 	{
-		public decimal op1 { get; set; }
-		public decimal op2 { get; set; }
+		public decimal Operator1 { get; set; }
+		public decimal Operator2 { get; set; }
 		public decimal res { get; set; }
-		public string code { get { return "Summation"; } }
-		public void DoOperation() { res = op1 + op2; }
+		public OperationNames code { get { return OperationNames.Summation; } }
+		public void DoOperation() { res = Operator1 + Operator2; }
 
 	}
 
 	public class Substraction : IOperation
 	{
-		public decimal op1 { get; set; }
-		public decimal op2 { get; set; }
+		public decimal Operator1 { get; set; }
+		public decimal Operator2 { get; set; }
 		public decimal res { get; set; }
-		public string code { get { return "Substraction"; } }
-		public void DoOperation() { res = op1 - op2; }
+		public OperationNames code { get { return OperationNames.Substraction; } }
+		public void DoOperation() { res = Operator1 - Operator2; }
 
 	}
 
 	public class Multiplication : IOperation
 	{
-		public decimal op1 { get; set; }
-		public decimal op2 { get; set; }
+		public decimal Operator1 { get; set; }
+		public decimal Operator2 { get; set; }
 		public decimal res { get; set; }
-		public string code { get { return "Multiplication"; } }
+		public OperationNames code { get { return OperationNames.Multiplication; } }
 		public void DoOperation()
 		{ 
-			if (op2 == 0)
+			if (Operator2 == 0)
 			{
 				res = 0;
 			}
 			else
 			{
-				res = op1 * op2;
+				res = Operator1 * Operator2;
 			}
 		}
 
@@ -58,15 +58,15 @@ namespace WinFormsApp1
 
 	public class Division : IOperation
 	{
-		public decimal op1 { get; set; }
-		public decimal op2 { get; set; }
+		public decimal Operator1 { get; set; }
+		public decimal Operator2 { get; set; }
 		public decimal res { get; set; }
-		public string code { get { return "Division"; } }
+		public OperationNames code { get { return OperationNames.Division; } }
 		public void DoOperation()
 		{
 			try
 			{
-				res = op1 / op2;
+				res = Operator1 / Operator2;
 			}
 			catch(DivideByZeroException)
 			{
@@ -93,5 +93,13 @@ namespace WinFormsApp1
 			pull.Add(NewOperation);
 		}
 
+	}
+
+	public enum OperationNames
+	{
+		Summation,
+		Substraction,
+		Multiplication,
+		Division
 	}
 }
